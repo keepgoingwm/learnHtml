@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      width: 300px;
+      position: relative;
+    }
+
+    .aside {
+      width: 100px;
+      height: 150px;
+      float: left;
+      background: #f66;
+    }
+
+    .main {
+      height: 200px;
+      background: #fcc;
+    }
+
+    .main_to_bfc {
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>main非BFC</h2>
+  <div class="aside">aside</div>
+  <div class="main">main</div>
+
+  <h2>添加overflow: hidden使main变为BFC；BFC的区域不会与float box重叠</h2>
+  <div class="aside">aside</div>
+  <div class="main main_to_bfc">main</div>
+
+  <div style="float: left;width: 100px;height: 150px;background: #f66;">aside</div>
+  <div style="height: 200px;background: #fcc;margin-left: 100px;">main</div>
+</body>
+
+</html>

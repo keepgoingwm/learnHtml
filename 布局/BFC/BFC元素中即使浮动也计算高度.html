@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .par {
+      clear: left;
+      border: 5px solid #fcc;
+      width: 300px;
+    }
+
+    .to_bfc {
+      overflow: hidden;
+    }
+
+    .child {
+      border: 5px solid #f66;
+      width: 100px;
+      height: 100px;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>浮动元素不计算高度</h2>
+  <div class="par">parent
+    <div class="child">child</div>
+    <div class="child">child</div>
+  </div>
+  <h2 style="clear: left; margin-top: 30px;">BFC元素中即使浮动也计算高度</h2>
+  <div class="par to_bfc">parent
+    <div class="child">child</div>
+    <div class="child">child</div>
+  </div>
+</body>
+
+</html>

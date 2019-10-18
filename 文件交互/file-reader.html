@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="file" id="fileInput">
+
+  <script>
+    function printFile(file) {
+      var reader = new FileReader();
+      reader.onload = function(evt) {
+        console.log(evt.target.result);
+      };
+      reader.readAsText(file);
+    }
+
+    // ArrayBuffer转为字符串，参数为ArrayBuffer对象
+    function ab2str(buf) {
+      return String.fromCharCode.apply(null, new Uint16Array(buf))
+    }
+
+    function printFileBuffer(file) {
+      var reader = new FileReader();
+      reader.onload = function(evt) {
+        addAnchor(reader.result)
+        console.log(ab2str(reader.result));
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    function addAnchor(buffer) {
+      var blob = new Blob([buffer], {
+        type: "application/octet-binary"
+      })
+
+      var a = document.createElement('a')
+      a.innerText = 'to content url'
+      a.href = URL.createObjectURL(blob)
+
+      document.documentElement.children[1].append(a)
+    }
+
+    window.onload = function() {
+      var input = document.getElementById('fileInput')
+      input.addEventListener('change', function(evt) {
+        let files = evt.target.files
+
+        Array.prototype.forEach.call(files, file => {
+          printFileBuffer(file)
+        })
+      })
+    }
+  </script>
+</body>
+
+</html>

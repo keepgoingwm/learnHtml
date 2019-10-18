@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <section>
+    <label for="s1">A simple select box: </label>
+    <select name="s1" id="s1">
+      <option value="banana">Banana</option>
+      <option value="cherry" selected>Cherry</option>
+      <option value="lemon">Lemon</option>
+    </select>
+  </section>
+  <section>
+    <label for="s2">Select box with option groups: </label>
+    <select name="s2" id="s2">
+      <optgroup label="fruits">
+        <option value="banana">Banana</option>
+        <option value="cherry">Cherry</option>
+        <option value="lemon">Lemon</option>
+      </optgroup>
+      <optgroup label="vegetables">
+        <option value="carrot">Carrot</option>
+        <option value="eggplant">Eggplant</option>
+        <option value="potato">Potato</option>
+      </optgroup>
+    </select>
+  </section>
+  <section>
+    <label for="s3">Select box allowing multiple selections: </label>
+    <select name="s3" id="s3" multiple>
+      <option value="banana">Banana</option>
+      <option value="cherry">Cherry</option>
+      <option value="lemon">Lemon</option>
+    </select>
+  </section>
+  <section>
+    <label for="s4">What's your favorite fruit?</label>
+    <input type="text" name="myFruit" id="s4" list="mySuggestion">
+    <datalist id="mySuggestion">
+      <option>Apple</option>
+      <option>Banana</option>
+      <option>Blackberry</option>
+      <option>Blueberry</option>
+      <option>Lemon</option>
+      <option>Lychee</option>
+      <option>Peach</option>
+      <option>Pear</option>
+    </datalist>
+  </section>
+  <p>
+    <label for="myFruit">What is your favorite fruit? (With fallback)</label>
+    <input type="text" id="myFruit" name="fruit" list="fruitList">
+    <datalist id="fruitList"> <label for="suggestion">or pick a fruit</label>
+      <select id="suggestion" name="altFruit">
+        <option>Apple</option>
+        <option>Banana</option>
+        <option>Blackberry</option>
+        <option>Blueberry</option>
+        <option>Lemon</option>
+        <option>Lychee</option>
+        <option>Peach</option>
+        <option>Pear</option>
+      </select>
+    </datalist>
+  </p>
+  <p>
+    <button type="submit">Submit me!</button>
+  </p>
+</body>
+
+</html>

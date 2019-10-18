@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>单独source的video</h2>
+  <video src="./assets/rabbit320.webm" controls>
+    <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.webm"></a> instead.</p>
+  </video>
+  <h2>多个source的video</h2>
+  <video>
+    <source src="./assets/rabbit320.mp4" type="video/mp4">
+    <source src="./assets/rabbit320.webm" type="video/webm">
+    <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p>
+  </video>
+  <h2>添加特殊设置的video</h2>
+  <video width="400" height="400" muted loop preload="auto" poster="./assets/poster.png">
+    <source src="./assets/rabbit320.mp4" type="video/mp4">
+    <source src="./assets/rabbit320.webm" type="video/webm">
+    <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p>
+  </video>
+</body>
+
+</html>

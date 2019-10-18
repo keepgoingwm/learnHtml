@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    window.onload = function() {
+      var Iframe = document.getElementById("script"); //先获取到iframe元素
+      var iframeWindow = (Iframe.contentWindow || Iframe.contentDocument); //获取到指定iframe下window
+      /*在主页面对iframe页面的window上添加一个监听事件，监听自定义事件，传入一个当前页面的函数，获取iframe触发的事件*/
+      iframeWindow.addEventListener('myEvent', function(event) { //event为t.html中触发这个监听的window.evt事件
+        console.log(event.test); //到此，传值完成
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <iframe class="Panel" id="script" style="height: 1000px;" src="./iframe-content.html" name="script"></iframe>
+</body>
+
+</html>

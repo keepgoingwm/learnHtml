@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>各种类型的input</h1>
+  <section>
+    <label for="comment">text类型</label>
+    <input type="text" id="comment" name="comment" maxlength="10" value="I'm a text field">
+    <input type="number" id="number-input">
+  </section>
+  <section><label for="email">email类型</label><input type="email" id="email" name="email" multiple></section>
+  <section><label for="pwd">password类型</label><input type="password" id="pwd" name="pwd"></section>
+  <section><label for="search">search类型</label><input type="search" id="search" name="search"></section>
+  <section><label for="tel">tel类型</label><input type="tel" id="tel" name="tel"></section>
+  <section><label for="url">url类型</label><input type="url" name="url" id="url"></section>
+  <section>
+    <label for="carrots">Carrots</label>
+    <input type="checkbox" checked id="carrots" name="carrots" value="carrots">
+  </section>
+  <section>
+    <label for="soup">Meal</label>
+    <input type="radio" checked id="soup" name="meal">
+    <label for="vegetables">Vegetables</label>
+    <input type="radio" checked id="vegetables" name="meal">
+  </section>
+
+  <script>
+  let textInput = document.getElementById('comment')
+  let numberInput = document.getElementById('number-input')
+
+  let handler = (event) => {
+    console.log(event, event.target.value, typeof event.target.value)
+  }
+
+  textInput.addEventListener('blur', handler)
+  numberInput.addEventListener('blur', handler)
+  </script>
+</body>
+
+</html>

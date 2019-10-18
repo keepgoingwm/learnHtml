@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>表单数据校验</title>
+  <style>
+    input:invalid {
+      border: 2px dashed red;
+    }
+    input:valid {
+      border: 2px solid black;
+    }
+    .email:valid {
+      color: aqua;
+    }
+    .email:invalid {
+      color: brown;
+    }
+
+    /* 仅为了使示例更好看 */
+    body {
+      font: 1em sans-serif;
+      padding: 0;
+      margin : 0;
+    }
+
+    form {
+      max-width: 200px;
+    }
+
+    p * {
+      display: block;
+    }
+
+    input[type=email]{
+      -webkit-appearance: none;
+
+      width: 100%;
+      border: 1px solid #333;
+      margin: 0;
+
+      font-family: inherit;
+      font-size: 90%;
+
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    /* 验证失败的元素样式 */
+    input:invalid{
+      border-color: #900;
+      background-color: #FDD;
+    }
+
+    input:focus:invalid {
+      outline: none;
+    }
+
+    /* 错误消息的样式 */
+    .error {
+      width  : 100%;
+      padding: 0;
+    
+      font-size: 80%;
+      color: white;
+      background-color: #900;
+      border-radius: 0 0 5px 5px;
+    
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .error.active {
+      padding: 0.3em;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <label for="email">Mail: </label>
+    <input type="email" name="email" id="email" class="email">
+  </section>
+  <h2>reuqired 和 正则检查</h2>
+  <form>
+    <label for="choose">Would you prefer a banana or a cherry?</label>
+    <input id="choose" name="i_like" required pattern="banana|cherry">
+    <button>Submit</button>
+  </form>
+  <h2>限制长度</h2>
+  <form>
+    <div>
+      <label for="choose">Would you prefer a banana or a cherry?</label>
+      <input id="choose" name="i_like" required minlength="6" maxlength="6">
+    </div>
+    <div>
+      <label for="number">How many would you like?</label>
+      <input type="number" id="number" name="amount" value="1" min="1" max="10">
+    </div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </form>
+  <h2>自定义提示setCustomValidity</h2>
+  <form>
+    <label for="mail">I would like you to provide me an e-mail</label>
+    <input type="email" id="mail" name="mail">
+    <button>Submit</button>
+  </form>
+
+  <script>
+    var email = document.getElementById("mail");
+
+    email.addEventListener("input", function (event) {
+      if (email.validity.typeMismatch) {
+        email.setCustomValidity("I expect an e-mail, darling!");
+      } else {
+        email.setCustomValidity("");
+      }
+    });
+  </script>
+</body>
+
+</html>

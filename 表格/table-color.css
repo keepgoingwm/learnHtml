@@ -1,0 +1,13 @@
+
+th {
+  text-align: center;
+  font-weight: bolder;
+}
+
+tr:not(:nth-child(1)):nth-child(even) {
+  background-color: antiquewhite;
+}
+
+tr:not(:nth-child(1)):nth-child(odd) {
+  background-color: beige;
+}

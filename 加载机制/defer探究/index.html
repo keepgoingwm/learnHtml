@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOMContentLoaded', Date.now())
+    })
+  </script>
+  <script src="./src.js" defer></script>
+  <script src="./src.1.js" defer></script>
+</head>
+
+<body>
+  defter是不是于DomcontentLoaded事件在同一时机触发呢？
+
+  <p>
+    可以看到DOMContentLoaded在两个脚本加载后才执行 <br>
+  </p>
+  <code>
+    script start 1555568463902 <br>
+    src.1.js:1 script1 start 1555568463903 <br>
+    index.html:11 DOMContentLoaded 1555568463904 <br>
+  </code>
+</body>
+
+</html>
