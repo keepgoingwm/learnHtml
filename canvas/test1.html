@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    #canvas1, #target {
+      width: 400px;
+      height: 300px;
+    }
+
+    #target {
+      margin-top: 20px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas1" draggable="true"></canvas>
+  <div id="target">drag target</div>
+
+  <script>
+    function getCanvasDownload(canvas, text, type = 'image/png') {
+      var a = document.createElement('a')
+
+      var uri = canvas.toDataURL(type)
+      a.href = uri
+      a.download = 'canvas_image'
+      a.innerText = text
+
+      return a
+    }
+  </script>
+
+  <script>
+    function drawFlag(context) {
+      context.strokeStyle = 'black'
+      context.fillStyle = 'red'
+
+      context.strokeRect(9, 9, 251, 101)
+      context.fillRect(10, 10, 250, 100)
+
+      context.beginPath()
+      context.moveTo(20, 15)
+      context.lineTo(25, 30)
+      context.closePath()
+    }
+
+    function drawClock() {
+      context.strokeStyle = 'black'
+      context.fillStyle = 'red'
+
+      context.beginPath()
+      context.arc(100, 100, 99, 0, 2 * Math.PI, false)
+
+      context.moveTo(194, 100)
+      context.arc(100, 100, 94, 0, 2 * Math.PI, false)
+
+      context.closePath()
+      context.stroke()
+    }
+  </script>
+
+  <script>
+    var drawing = document.getElementById('canvas1')
+    var context = drawing.getContext('2d')
+
+    drawClock(context)
+
+    document.body.appendChild(getCanvasDownload(drawing, 'a image'))
+  </script>
+
+  <script>
+    target.addEventListener('dragenter', function() {
+      event.dropEffect = 'copy'
+      event.preventDefault()
+    })
+    target.addEventListener('dragover', function() {
+      event.preventDefault()
+    })
+    target.addEventListener('drop', function() {
+      console.log('drop', event)
+    })
+  </script>
+</body>
+
+</html>

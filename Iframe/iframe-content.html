@@ -14,7 +14,7 @@
         window.evt.test = '测试iframe之间用事件传数据'; //测试传值
         window.dispatchEvent(window.evt); //让自定义事件触发
       }, false);
-      console.log(parent, top); //父页面的window对象，iframe嵌入页面自带
+      console.log(parent, top, window === top, window); //父页面的window对象，iframe嵌入页面自带
     };
   </script>
 </head>
